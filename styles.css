@@ -3,15 +3,15 @@
 html, body { min-width: 0; min-height: 100%; margin: 0; }
 body { overflow-x: hidden; }
 .invitation { isolation: isolate; position: relative; display: grid; place-items: center; min-height: 100svh; padding: clamp(2rem, 7vw, 5.5rem) clamp(1.25rem, 6vw, 6rem); overflow: hidden; background: radial-gradient(circle at 50% 43%, #fff9ec 0 22%, transparent 57%), #f8f0df; }
-.content { position: relative; z-index: 2; width: min(100%, 48rem); text-align: center; }
-.eyebrow { margin: 0; color: #c86c55; font-size: clamp(.78rem, 1.7vw, 1rem); font-weight: 500; letter-spacing: .16em; text-transform: uppercase; }
-h1 { display: grid; gap: .03em; margin: 0 0 clamp(.7rem, 2vh, 1.2rem); color: #c95d50; font-family: "Great Vibes", "Brush Script MT", cursive; font-size: clamp(3.7rem, 11vw, 9rem); font-weight: 400; line-height: .72; }
-h1 span:first-child { transform: translateX(-.09em); }
-h1 span:last-child { transform: translateX(.1em); }
-h1 i { position: relative; z-index: 1; height: 1.1em; color: #e19b43; font-family: "DM Serif Display", Georgia, serif; font-size: .28em; font-style: italic; line-height: 1; }
+.content { position: relative; z-index: 2; width: min(100%, 52rem); text-align: center; }
+.eyebrow { margin: 0; color: #c86c55; font-size: clamp(1rem, 2vw, 1.3rem); font-weight: 500; letter-spacing: .18em; text-transform: uppercase; }
+h1 { display: grid; gap: .02em; margin: 0 0 clamp(1rem, 2.5vh, 1.5rem); color: #c95d50; font-family: "Great Vibes", "Brush Script MT", cursive; font-size: clamp(4.1rem, 10.5vw, 7rem); font-weight: 400; line-height: .82; }
+h1 span { white-space: nowrap; }
+h1 span:first-child { transform: translateX(-.06em); }
+h1 span:last-child { transform: translateX(.06em); }
 .date, .invitation-line { margin: 0; color: #596241; font-size: clamp(.82rem, 1.8vw, 1.08rem); font-weight: 500; letter-spacing: .1em; }
 .invitation-line { margin-top: .55rem; }
-.rule { display: flex; align-items: center; justify-content: center; gap: .7rem; margin: clamp(1.4rem, 4vh, 2.5rem) auto clamp(1rem, 3vh, 1.9rem); }
+.rule { display: flex; align-items: center; justify-content: center; gap: .7rem; margin: clamp(.85rem, 2.5vh, 1.35rem) auto clamp(1.2rem, 3vh, 1.8rem); }
 .rule::before, .rule::after { width: clamp(2.5rem, 10vw, 5.5rem); height: 1px; content: ""; background: #9ba275; }
 .rule span { width: .38rem; height: .38rem; border: 1px solid #9ba275; transform: rotate(45deg); }
 .flower { position: absolute; z-index: 1; width: clamp(9rem, 24vw, 15rem); overflow: visible; opacity: .93; }
@@ -20,5 +20,5 @@ h1 i { position: relative; z-index: 1; height: 1.1em; color: #e19b43; font-famil
 .stem { fill: none; stroke: #8c9b69; stroke-linecap: round; stroke-width: 3; }
 .petals { fill: #d96e5a; }
 .leaves { fill: #98a376; }
-@media (max-width: 420px) { .invitation { padding-block: 2.3rem; } .flower { width: 10rem; opacity: .75; } .flower--top { right: -4.5rem; } .flower--bottom { left: -4.7rem; } h1 { font-size: clamp(3.7rem, 19vw, 5rem); } }
-@media (max-height: 560px) and (min-width: 600px) { .invitation { padding-block: 1.25rem; } h1 { font-size: clamp(4.2rem, 10vw, 7rem); } .rule { margin-block: 1rem; } }
+@media (max-width: 420px) { .invitation { padding-block: 2.3rem; } .flower { width: 10rem; opacity: .75; } .flower--top { right: -4.5rem; } .flower--bottom { left: -4.7rem; } .eyebrow { font-size: .95rem; } h1 { font-size: clamp(4rem, 18vw, 4.8rem); } h1 span { white-space: normal; } }
+@media (max-height: 560px) and (min-width: 600px) { .invitation { padding-block: 1.25rem; } h1 { font-size: clamp(4rem, 9vw, 6.8rem); } .rule { margin-block: .75rem 1rem; } }

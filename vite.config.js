@@ -1,6 +1,6 @@
 /** @type {import('vite').UserConfig} */
 export default {
   server: {
-    allowedHosts: ['correct-wedding-site-copy.wt.maitz.casa'],
+    allowedHosts: ['refine-wedding-title-hierarchy.wt.maitz.casa'],
   },
 };
