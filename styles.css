@@ -6,10 +6,10 @@ body { overflow-x: hidden; }
 .content { position: relative; z-index: 2; width: min(100%, 48rem); text-align: center; }
 .eyebrow, .announcement { margin: 0; letter-spacing: .13em; text-transform: uppercase; }
 .eyebrow { color: #c86c55; font-size: clamp(.66rem, 1.4vw, .83rem); font-weight: 500; }
-h1 { display: grid; margin: clamp(.25rem, 1vh, .8rem) 0 clamp(.5rem, 1.5vh, 1rem); color: #c95d50; font-family: "Italianno", "Brush Script MT", cursive; font-size: clamp(5rem, 14vw, 10.5rem); font-weight: 400; line-height: .61; }
+h1 { display: grid; gap: .04em; margin: clamp(.25rem, 1vh, .8rem) 0 clamp(.5rem, 1.5vh, 1rem); color: #c95d50; font-family: "Italianno", "Brush Script MT", cursive; font-size: clamp(5rem, 14vw, 10.5rem); font-weight: 400; line-height: .61; }
 h1 span:first-child { transform: translateX(-.09em); }
 h1 span:last-child { transform: translateX(.1em); }
-h1 i { height: .31em; color: #e19b43; font-family: "DM Serif Display", Georgia, serif; font-size: .26em; font-style: italic; line-height: 1; }
+h1 i { position: relative; z-index: 1; height: 1.2em; color: #e19b43; font-family: "DM Serif Display", Georgia, serif; font-size: .26em; font-style: italic; line-height: 1; }
 .rule { display: flex; align-items: center; justify-content: center; gap: .7rem; margin: clamp(1.4rem, 4vh, 2.5rem) auto clamp(1rem, 3vh, 1.9rem); }
 .rule::before, .rule::after { width: clamp(2.5rem, 10vw, 5.5rem); height: 1px; content: ""; background: #9ba275; }
 .rule span { width: .38rem; height: .38rem; border: 1px solid #9ba275; transform: rotate(45deg); }
