@@ -37,6 +37,11 @@ h1 span:nth-child(1) { transform: translateX(-.13em); } h1 span:nth-child(2) { t
   .photo--neon { bottom: 0; left: -10%; z-index: 3; width: 58%; }
   .photo--fireplace { bottom: -8%; left: 22%; width: 62%; }
   .photo--door { bottom: -10%; right: -10%; width: 40%; }
-  h1 { font-size: clamp(3.9rem, 17vw, 5.6rem); line-height: .8; }
+  /* The script face needs a little more air on a narrow reading band.
+     Smaller offsets also keep each title line inside the ivory centre. */
+  h1 { font-size: clamp(3.85rem, 16vw, 4.35rem); line-height: .92; }
+  h1 span:nth-child(1) { transform: translateX(-.06em); }
+  h1 span:nth-child(2) { transform: translateX(.04em); }
+  h1 span:nth-child(3) { transform: translateX(-.04em); }
 }
-@media (max-width: 380px) { h1 { font-size: clamp(3.6rem, 17vw, 4.5rem); } .details p { font-size: .58rem; letter-spacing: .13em; } }
+@media (max-width: 380px) { h1 { font-size: 3.75rem; } .details p { font-size: .58rem; letter-spacing: .13em; } }
