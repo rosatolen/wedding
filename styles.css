@@ -7,7 +7,7 @@ body { overflow-x: hidden; }
 .eyebrow { margin: 0; color: #b65042; font-size: clamp(.85rem, 2.8vw, 1rem); font-weight: 500; letter-spacing: .19em; text-transform: uppercase; transform: translateY(-.8rem); -webkit-text-stroke: clamp(2.2px, .24vw, 3.2px) #f8efdc; paint-order: stroke fill; }
 h1 { display: grid; row-gap: .08em; margin: clamp(1rem, 2.4vh, 1.6rem) 0 clamp(1.5rem, 3.4vh, 2.1rem); color: #ca6656; font-family: "Great Vibes", "Brush Script MT", cursive; font-size: clamp(4.1rem, 8.6vw, 6.5rem); font-weight: 400; font-kerning: auto; font-variant-ligatures: common-ligatures; letter-spacing: normal; line-height: .94; word-spacing: normal; }
 h1 span { display: block; white-space: nowrap; }
-h1 span:nth-child(1) { transform: none; } h1 span:nth-child(2) { transform: translateY(-.07em); } h1 span:nth-child(3) { transform: translateY(-.2em); }
+h1 span:nth-child(1) { transform: none; } h1 span:nth-child(2) { transform: translateY(-.07em); } h1 span:nth-child(3) { transform: translateY(-.32em); }
 .details { display: grid; gap: .45rem; }.details p, .invitation-line { margin: 0; }
 .details p { color: #40523c; font-size: clamp(.78rem, 2.5vw, .95rem); font-weight: 500; letter-spacing: .14em; text-transform: uppercase; -webkit-text-stroke: clamp(2px, .2vw, 2.8px) #f8efdc; paint-order: stroke fill; }
 .invitation-line { margin-top: clamp(2rem, 4vh, 2.5rem); color: #40523c; font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(1.25rem, 4.6vw, 1.6rem); font-weight: 600; letter-spacing: .04em; -webkit-text-stroke: clamp(2.2px, .24vw, 3.2px) #f8efdc; paint-order: stroke fill; }
