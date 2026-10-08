@@ -13,14 +13,14 @@
   <body>
     <main class="invitation">
       <section class="collage" aria-label="Photos of Rosalie and Holly">
-        <figure class="photo photo--tuxedo"><img src="assets/photos/tuxedo-kiss.jpg" alt="Rosalie in a tuxedo with a purple bow tie kissing Holly’s cheek" /></figure>
-        <figure class="photo photo--glasses"><img src="assets/photos/glasses-hat.jpg" alt="Rosalie and Holly in yellow glasses and a blue hat against carved stone" /></figure>
-        <figure class="photo photo--paris"><img src="assets/photos/paris-river.jpg" alt="The river and bridge in Paris" /></figure>
-        <figure class="photo photo--restaurant"><img src="assets/photos/restaurant-faces.jpg" alt="Rosalie and Holly making wide-eyed faces at a restaurant" /></figure>
-        <figure class="photo photo--nose"><img src="assets/photos/nose-to-nose.jpg" alt="Rosalie and Holly smiling nose to nose in purple" /></figure>
-        <figure class="photo photo--neon"><img src="assets/photos/neon-sunglasses.jpg" alt="Rosalie and Holly in black sunglasses under neon light" /></figure>
-        <figure class="photo photo--fireplace"><img src="assets/photos/fireplace-formalwear.jpg" alt="Rosalie and Holly in formalwear in front of an ornate fireplace" /></figure>
-        <figure class="photo photo--door"><img src="assets/photos/blue-door.jpg" alt="Rosalie and Holly in two suits at a blue industrial door" /></figure>
+        <figure class="photo photo--tuxedo" tabindex="0" role="button" aria-pressed="false"><img src="assets/photos/tuxedo-kiss.jpg" alt="Rosalie in a tuxedo with a purple bow tie kissing Holly’s cheek" /></figure>
+        <figure class="photo photo--glasses" tabindex="0" role="button" aria-pressed="false"><img src="assets/photos/glasses-hat.jpg" alt="Rosalie and Holly in yellow glasses and a blue hat against carved stone" /></figure>
+        <figure class="photo photo--paris" tabindex="0" role="button" aria-pressed="false"><img src="assets/photos/paris-river.jpg" alt="The river and bridge in Paris" /></figure>
+        <figure class="photo photo--restaurant" tabindex="0" role="button" aria-pressed="false"><img src="assets/photos/restaurant-faces.jpg" alt="Rosalie and Holly making wide-eyed faces at a restaurant" /></figure>
+        <figure class="photo photo--nose" tabindex="0" role="button" aria-pressed="false"><img src="assets/photos/nose-to-nose.jpg" alt="Rosalie and Holly smiling nose to nose in purple" /></figure>
+        <figure class="photo photo--neon" tabindex="0" role="button" aria-pressed="false"><img src="assets/photos/neon-sunglasses.jpg" alt="Rosalie and Holly in black sunglasses under neon light" /></figure>
+        <figure class="photo photo--fireplace" tabindex="0" role="button" aria-pressed="false"><img src="assets/photos/fireplace-formalwear.jpg" alt="Rosalie and Holly in formalwear in front of an ornate fireplace" /></figure>
+        <figure class="photo photo--door" tabindex="0" role="button" aria-pressed="false"><img src="assets/photos/blue-door.jpg" alt="Rosalie and Holly in two suits at a blue industrial door" /></figure>
       </section>
       <section class="content" aria-labelledby="wedding-title">
         <p class="eyebrow">Save the Date</p>
@@ -29,5 +29,25 @@
         <p class="invitation-line">You’re invited!</p>
       </section>
     </main>
+    <script>
+      const photos = document.querySelectorAll(".photo");
+      const selectPhoto = (selectedPhoto) => {
+        photos.forEach((photo) => {
+          const isSelected = photo === selectedPhoto;
+          photo.classList.toggle("is-selected", isSelected);
+          photo.setAttribute("aria-pressed", String(isSelected));
+        });
+      };
+
+      photos.forEach((photo) => {
+        photo.addEventListener("click", () => selectPhoto(photo));
+        photo.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            selectPhoto(photo);
+          }
+        });
+      });
+    </script>
   </body>
 </html>
