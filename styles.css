@@ -4,10 +4,10 @@ html, body { min-width: 0; min-height: 100%; margin: 0; }
 body { overflow-x: hidden; }
 .invitation { isolation: isolate; position: relative; display: grid; place-items: center; min-height: 100svh; padding: clamp(2rem, 5vw, 5rem); overflow: hidden; background: #f8efdc; }
 .content { position: relative; z-index: 4; width: min(100%, 42rem); padding: clamp(1.25rem, 3vw, 2.25rem) clamp(.4rem, 2vw, 1.5rem); text-align: center; }
-.eyebrow { margin: 0; color: #c96b59; font-size: clamp(.72rem, 1.2vw, .92rem); font-weight: 500; letter-spacing: .21em; text-transform: uppercase; }
+.eyebrow { margin: 0; color: #c96b59; font-size: clamp(.72rem, 1.2vw, .92rem); font-weight: 500; letter-spacing: .21em; text-transform: uppercase; transform: translateY(-1.3rem); }
 h1 { display: grid; margin: clamp(1rem, 2.4vh, 1.6rem) 0 clamp(1rem, 2.5vh, 1.55rem); color: #ca6656; font-family: "Great Vibes", "Brush Script MT", cursive; font-size: clamp(4.4rem, 9.4vw, 7.2rem); font-weight: 400; line-height: .74; }
 h1 span { display: block; white-space: nowrap; }
-h1 span:nth-child(1) { transform: translateX(-.13em); } h1 span:nth-child(2) { transform: translateX(.1em); } h1 span:nth-child(3) { transform: translateX(-.08em); }
+h1 span:nth-child(1) { transform: translate(-.13em, -.12em); } h1 span:nth-child(2) { transform: translateX(.3em); } h1 span:nth-child(3) { transform: translateX(-.08em); }
 .details { display: grid; gap: .48rem; }.details p, .invitation-line { margin: 0; }
 .details p { color: #586b4f; font-size: clamp(.63rem, 1.05vw, .8rem); font-weight: 500; letter-spacing: .17em; text-transform: uppercase; }
 .invitation-line { margin-top: clamp(.95rem, 2.2vh, 1.4rem); color: #586b4f; font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(1.05rem, 1.7vw, 1.35rem); font-weight: 600; letter-spacing: .06em; }
@@ -19,6 +19,7 @@ h1 span:nth-child(1) { transform: translateX(-.13em); } h1 span:nth-child(2) { t
 .collage { position: absolute; z-index: 2; inset: 0; pointer-events: none; }
 .photo { position: absolute; left: calc(var(--x) * 1%); top: calc(var(--y) * 1%); margin: 0; padding: clamp(.3rem, .5vw, .5rem); background: #fff; box-shadow: 0 .6rem 1.4rem rgb(84 60 42 / .26); transform: translate(-50%, -50%) rotate(var(--r)); }
 .photo img { display: block; width: calc(var(--L) * min(1, var(--ar))); height: auto; aspect-ratio: var(--ar); object-fit: cover; }
+.photo--side img { --L: min(15vw, 22vh); }
 .photo--front { z-index: 3; }
 @media (max-width: 700px) { .invitation { --L: 26vw; padding: 1rem .75rem; } .photo { left: calc(var(--mx) * 1%); top: calc(var(--my) * 1%); padding: .25rem; } .photo--side img { --L: 16vw; } h1 { font-size: clamp(3.9rem, 17vw, 5.6rem); line-height: .72; } }
 @media (max-width: 380px) { h1 { font-size: clamp(3.6rem, 17vw, 4.5rem); } .details p { font-size: .58rem; letter-spacing: .13em; } }
