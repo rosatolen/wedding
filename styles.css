@@ -11,9 +11,14 @@ h1 span:nth-child(1) { transform: translateX(-.13em); } h1 span:nth-child(2) { t
 .details { display: grid; gap: .48rem; }.details p, .invitation-line { margin: 0; }
 .details p { color: #586b4f; font-size: clamp(.63rem, 1.05vw, .8rem); font-weight: 500; letter-spacing: .17em; text-transform: uppercase; }
 .invitation-line { margin-top: clamp(.95rem, 2.2vh, 1.4rem); color: #586b4f; font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(1.05rem, 1.7vw, 1.35rem); font-weight: 600; letter-spacing: .06em; }
-.collage { position: absolute; z-index: 2; inset: 0; pointer-events: none; }.photo { position: absolute; margin: 0; padding: clamp(.35rem, .6vw, .55rem); background: #fff; box-shadow: 0 .9rem 1.9rem rgb(84 60 42 / .26); }.photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
-.photo--tuxedo { top: -6%; left: -2.5%; width: 19%; aspect-ratio: .78; transform: rotate(-6deg); }.photo--glasses { top: 20%; left: 7.5%; width: 23%; aspect-ratio: 1.45; transform: rotate(4deg); }.photo--paris { top: -9%; left: 30%; width: 30%; aspect-ratio: 1.5; transform: rotate(-3deg); }
-.photo--restaurant { top: -3%; left: 58%; width: 25%; aspect-ratio: 1.62; transform: rotate(5deg); }.photo--nose { top: 12%; left: 79%; width: 20%; aspect-ratio: 1.4; transform: rotate(-6deg); }
-.photo--neon { bottom: 16%; left: -1%; z-index: 3; width: 38%; aspect-ratio: 1.5; transform: rotate(-5deg); }.photo--fireplace { bottom: -9%; left: 34%; width: 28%; aspect-ratio: 1.5; transform: rotate(3deg); }.photo--door { bottom: -8%; right: -4%; width: 22%; aspect-ratio: .74; transform: rotate(5deg); }
-@media (max-width: 700px) { .invitation { padding: 1rem .75rem; }.photo--tuxedo { top: -3%; left: -6%; width: 29%; }.photo--glasses { top: 9%; left: 14%; width: 38%; }.photo--paris { top: -2%; left: 44%; width: 42%; }.photo--restaurant { top: 4%; left: 70%; right: auto; width: 36%; }.photo--nose { top: 13%; left: 76%; right: auto; width: 32%; }.photo--neon { bottom: 14%; left: -10%; z-index: 3; width: 58%; }.photo--fireplace { bottom: -8%; left: 22%; width: 62%; }.photo--door { bottom: -10%; right: -10%; width: 40%; } h1 { font-size: clamp(3.9rem, 17vw, 5.6rem); line-height: .72; } }
+.invitation::before, .invitation::after { content: ""; position: absolute; z-index: 0; border-radius: 50%; pointer-events: none; }
+.invitation::before { top: -14vmin; left: -10vmin; width: 46vmin; height: 46vmin; background: #e9c46a; opacity: .5; }
+.invitation::after { right: -12vmin; bottom: -16vmin; width: 54vmin; height: 54vmin; background: #cfe0c3; opacity: .8; }
+.invitation { --L: min(15vw, 24vh); --x0: 0; }
+.content { width: fit-content; max-width: 100%; }
+.collage { position: absolute; z-index: 2; inset: 0; pointer-events: none; }
+.photo { position: absolute; left: calc(var(--x) * 1%); top: calc(var(--y) * 1%); margin: 0; padding: clamp(.3rem, .5vw, .5rem); background: #fff; box-shadow: 0 .6rem 1.4rem rgb(84 60 42 / .26); transform: translate(-50%, -50%) rotate(var(--r)); }
+.photo img { display: block; width: calc(var(--L) * min(1, var(--ar))); height: auto; aspect-ratio: var(--ar); object-fit: cover; }
+.photo--front { z-index: 3; }
+@media (max-width: 700px) { .invitation { --L: 26vw; padding: 1rem .75rem; } .photo { left: calc(var(--mx) * 1%); top: calc(var(--my) * 1%); padding: .25rem; } .photo--side img { --L: 16vw; } h1 { font-size: clamp(3.9rem, 17vw, 5.6rem); line-height: .72; } }
 @media (max-width: 380px) { h1 { font-size: clamp(3.6rem, 17vw, 4.5rem); } .details p { font-size: .58rem; letter-spacing: .13em; } }
