@@ -44,5 +44,22 @@
         <a class="calendar-link" href="wedding.ics" download="wedding.ics">+ Calendar Event</a>
       </section>
     </main>
+    <script>
+      const photos = document.querySelectorAll(".photo");
+      let raised;
+      function raise(photo) {
+        raised?.classList.remove("photo--raised");
+        raised = photo;
+        photo.classList.add("photo--raised");
+      }
+      photos.forEach((photo) => {
+        photo.tabIndex = 0;
+        photo.setAttribute("role", "button");
+        photo.addEventListener("click", () => raise(photo));
+        photo.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); raise(photo); }
+        });
+      });
+    </script>
   </body>
 </html>
