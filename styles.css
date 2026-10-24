@@ -11,6 +11,9 @@ h1 span:nth-child(1) { transform: translate(-.13em, -.12em); } h1 span:nth-child
 .details { display: grid; gap: .48rem; }.details p, .invitation-line { margin: 0; }
 .details p { color: #586b4f; font-size: clamp(.63rem, 1.05vw, .8rem); font-weight: 500; letter-spacing: .17em; text-transform: uppercase; }
 .invitation-line { margin-top: clamp(.95rem, 2.2vh, 1.4rem); color: #586b4f; font-family: "Cormorant Garamond", Georgia, serif; font-size: clamp(1.05rem, 1.7vw, 1.35rem); font-weight: 600; letter-spacing: .06em; }
+.calendar-link { position: absolute; top: calc(100% - clamp(.4rem, 1.2vw, 1rem)); left: 50%; transform: translateX(-50%); padding: .5em 1.1em; border: 1px solid #586b4f; border-radius: 999px; color: #586b4f; font-size: clamp(.63rem, 1.05vw, .8rem); font-weight: 500; letter-spacing: .17em; text-transform: uppercase; text-decoration: none; white-space: nowrap; }
+.calendar-link:hover { background: #586b4f; color: #f8efdc; }
+.calendar-link:focus-visible { outline: 2px solid #ca6656; outline-offset: 3px; }
 .invitation::before, .invitation::after { content: ""; position: absolute; z-index: 0; border-radius: 50%; pointer-events: none; }
 .invitation::before { top: -14vmin; left: -10vmin; width: 46vmin; height: 46vmin; background: #e9c46a; opacity: .5; }
 .invitation::after { right: -12vmin; bottom: -16vmin; width: 54vmin; height: 54vmin; background: #cfe0c3; opacity: .8; }
