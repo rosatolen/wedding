@@ -41,8 +41,15 @@
         <h1 id="wedding-title"><span>Holly &amp;</span><span>Rosalie’s</span><span>Wedding</span></h1>
         <div class="details"><p>Oct 23, 2027</p><p>San Francisco, CA</p></div>
         <p class="invitation-line">You’re invited!</p>
-        <a class="calendar-link" href="wedding.ics" download="wedding.ics">+ Calendar Event</a>
+        <div class="calendar">
+          <a class="calendar-link" href="wedding.ics" download="wedding.ics">+ Calendar Event</a>
+          <div class="calendar-menu" id="calendar-menu" hidden>
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Holly+%26+Rosalie%27s+Wedding&amp;dates=20271023/20271024&amp;location=San+Francisco%2C+CA" target="_blank" rel="noopener">Google Calendar</a>
+            <a href="wedding.ics" download="wedding.ics">Apple Calendar</a>
+          </div>
+        </div>
       </section>
     </main>
+    <script type="module" src="calendar.js"></script>
   </body>
 </html>
