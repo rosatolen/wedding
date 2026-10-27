@@ -26,7 +26,44 @@ const advance = (ms) => {
   for (let t = 0; t < ms; t++) for (const x of timers) if (x && --x.due === 0) { x.due = x.ms; x.fn(); }
 };
 
-const rotation = startPhotos({ doc, setTimer, clearTimer });
+// Fake viewport: media.set(true) = phone (<=700px)
+const media = {
+  matches: true, subs: [],
+  addEventListener(_, f) { this.subs.push(f); },
+  removeEventListener(_, f) { this.subs = this.subs.filter((s) => s !== f); },
+  set(v) { this.matches = v; this.subs.slice().forEach((f) => f({ matches: v })); },
+};
+const live = () => timers.filter(Boolean).length;
+const anyRaised = () => photos.some((p) => p.raised());
+
+// Wide viewport at load: no timer, nothing moves, manual raise still works.
+media.matches = false;
+const wide = startPhotos({ doc, setTimer, clearTimer, media });
+assert.equal(live(), 0, "no timer at 701px+");
+advance(ROTATE_MS * 3);
+assert.ok(!anyRaised(), "no auto rotation at 701px+");
+photos[0].fire("click");
+assert.ok(photos[0].raised(), "manual click works on wide");
+photos[0].fire("keydown", { key: "Enter" });
+assert.ok(photos[0].raised(), "keyboard works on wide");
+// wide -> phone -> wide -> phone: one timer on phone side, none and no raised state on wide side.
+media.set(true);
+assert.equal(live(), 1, "wide->phone starts one timer");
+media.set(true);
+assert.equal(live(), 1, "repeat phone event: still one timer");
+advance(ROTATE_MS);
+assert.ok(anyRaised(), "phone rotates");
+media.set(false);
+assert.equal(live(), 0, "phone->wide stops timer");
+assert.ok(!anyRaised(), "phone->wide leaves no raised state");
+advance(ROTATE_MS * 3);
+assert.ok(!anyRaised(), "no rotation after returning to wide");
+wide.stop();
+timers = [];
+media.subs = [];
+media.matches = true;
+
+const rotation = startPhotos({ doc, setTimer, clearTimer, media });
 assert.equal(timers.filter(Boolean).length, 1, "exactly one timer");
 assert.equal(timers[0].ms, 5000, "interval is 5000 ms");
 assert.equal(ROTATE_MS, 5000);
@@ -78,4 +115,5 @@ assert.deepEqual(fg("tr"), [tr[3]], "rotation continues after keyboard raise");
 // Evaluating again must not leave two timers.
 rotation.stop();
 assert.equal(timers.filter(Boolean).length, 0, "stop clears the timer");
+assert.equal(media.subs.length, 0, "stop unsubscribes");
 console.log(`OK: ${corners.map((c) => `${c}=${members(c).length}`).join(" ")}, ${ticks} ticks`);
