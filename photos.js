@@ -1,6 +1,12 @@
 export const ROTATE_MS = 5000;
+export const PHONE_QUERY = "(max-width: 700px)";
 
-export function startPhotos({ doc = document, setTimer = setInterval, clearTimer = clearInterval } = {}) {
+export function startPhotos({
+  doc = document,
+  setTimer = setInterval,
+  clearTimer = clearInterval,
+  media = globalThis.matchMedia?.(PHONE_QUERY),
+} = {}) {
   const clusters = new Map();
   doc.querySelectorAll(".photo").forEach((photo) => {
     const corner = photo.dataset.corner;
@@ -9,6 +15,7 @@ export function startPhotos({ doc = document, setTimer = setInterval, clearTimer
     cluster.photos.push(photo);
     if (photo.classList.contains("photo--front")) cluster.current = cluster.photos.length - 1;
   });
+  clusters.forEach((cluster) => (cluster.initial = cluster.current));
 
   function show(cluster, index) {
     cluster.photos[cluster.current]?.classList.remove("photo--raised");
@@ -31,8 +38,30 @@ export function startPhotos({ doc = document, setTimer = setInterval, clearTimer
     });
   });
 
-  const timer = setTimer(tick, ROTATE_MS);
-  return { tick, stop: () => clearTimer(timer) };
+  // Automatic rotation is phone-only; crossing the breakpoint starts or stops exactly one timer.
+  let timer = null;
+  function sync() {
+    if (media?.matches && timer === null) {
+      timer = setTimer(tick, ROTATE_MS);
+    } else if (!media?.matches && timer !== null) {
+      clearTimer(timer);
+      timer = null;
+      clusters.forEach((cluster) => {
+        cluster.photos.forEach((p) => p.classList.remove("photo--raised"));
+        cluster.current = cluster.initial;
+      });
+    }
+  }
+  media?.addEventListener?.("change", sync);
+  sync();
+  return {
+    tick,
+    stop: () => {
+      media?.removeEventListener?.("change", sync);
+      if (timer !== null) clearTimer(timer);
+      timer = null;
+    },
+  };
 }
 
 // A second evaluation of this module must not leave two timers running.
