@@ -1,4 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Pink heart on a cream background">
-  <rect width="512" height="512" rx="112" fill="#f8efdc"/>
-  <path fill="#e8789a" d="M256 421C256 421 96 311 96 199c0-63 49-108 109-108 27 0 45 16 51 28 6-12 24-28 51-28 60 0 109 45 109 108 0 112-160 222-160 222z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Pink heart on a cream background">
+  <!-- The heart is Phosphor's "heart-fill" glyph: the path below is copied verbatim from
+       https://unpkg.com/@phosphor-icons/core@2.1.1/assets/fill/heart-fill.svg (viewBox 0 0 256 256),
+       only translated and scaled to sit centred on the tile. Do not redraw this path by hand.
+       The 180x180 PNG (apple-touch-icon.png) uses the same tile WITHOUT the corner radius: iOS
+       masks the tile itself and composites transparent pixels onto black. -->
+  <rect width="256" height="256" rx="56" fill="#f8efdc" />
+  <g fill="#e8789a" transform="translate(128 128) scale(0.86) translate(-128 -136)">
+    <path d="M240,102c0,70-103.79,126.66-108.21,129a8,8,0,0,1-7.58,0C119.79,228.66,16,172,16,102A62.07,62.07,0,0,1,78,40c20.65,0,38.73,8.88,50,23.89C139.27,48.88,157.35,40,178,40A62.07,62.07,0,0,1,240,102Z" />
+  </g>
 </svg>
